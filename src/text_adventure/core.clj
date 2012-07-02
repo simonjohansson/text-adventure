@@ -64,6 +64,10 @@
             `(You are now carrying the ~object))
         :else '(nah, you cant get that.)))
 
+(defn inventory []
+  (filter (fn [x] (is-at? x 'body object-location))
+          objects))
+
 (defmacro defspel [& rest]
   `(defmacro ~@rest))
 
