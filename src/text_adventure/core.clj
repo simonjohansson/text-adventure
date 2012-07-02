@@ -21,3 +21,5 @@
                       'bucket 'living-room
                       'chain 'garden
                       'frog 'garden))
+
+(def location 'living-room)
