@@ -68,6 +68,9 @@
   (filter (fn [x] (is-at? x 'body object-location))
           objects))
 
+(defn have? [object]
+  (some #{object} (inventory)))
+
 (defmacro defspel [& rest]
   `(defmacro ~@rest))
 
