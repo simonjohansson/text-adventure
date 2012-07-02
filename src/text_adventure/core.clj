@@ -23,3 +23,6 @@
                       'frog 'garden))
 
 (def location 'living-room)
+
+(defn describe-location [location game-map]
+  (first (location game-map)))
