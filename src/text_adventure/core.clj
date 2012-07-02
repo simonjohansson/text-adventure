@@ -28,6 +28,11 @@
   (first (location game-map)))
 
 (defn describe-path [path]
-  `(There is a ~(second path) going ~(first path) from here))
+  `(There is a ~(second path) going ~(first path) from here -))
 
-(defn spel-print [list] (map (fn [x] (symbol (name x))) list))
+(defn describe-paths [location game-map]
+  (apply concat (map describe-path (rest (get game-map location)))))
+
+(defn spel-print [list]
+  (map (fn [x] (symbol (name x)))
+       list))
