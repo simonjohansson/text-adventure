@@ -26,3 +26,8 @@
 
 (defn describe-location [location game-map]
   (first (location game-map)))
+
+(defn describe-path [path]
+  `(There is a ~(second path) going ~(first path) from here))
+
+(defn spel-print [list] (map (fn [x] (symbol (name x))) list))
