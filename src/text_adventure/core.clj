@@ -15,3 +15,9 @@
                              wizards house - there is a giant
                              welding torch in the corner -)
                         (downstairs stairway living-room))))
+
+(def object-location (hash-map
+                      'whiskey-bottle 'living-room
+                      'bucket 'living-room
+                      'chain 'garden
+                      'frog 'garden))
