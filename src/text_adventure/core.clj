@@ -36,3 +36,24 @@
 (defn spel-print [list]
   (map (fn [x] (symbol (name x)))
        list))
+
+(defn is-at? [obj loc obj-loc]
+  (= (obj obj-loc) loc))
+
+(defn describe-floor [loc objs obj-loc]
+  (apply concat (map (fn [x]
+                       `(you see a ~x on the floor -))
+                     (filter (fn [x] (is-at? x loc obj-loc))
+                             objs))))
+
+(defn look []
+  (spel-print (concat (describe-location location game-map)
+                      (describe-paths location game-map)
+                      (describe-floor location objects object-location))))
+
+(defn walk [direction]
+  (let [next (first (filter (fn [x] (= direction (first x)))
+                            (rest (location game-map))))]
+    (cond next (do (def location (nth next 2))
+                   (look))
+          :else '(Hey! Where do you think you are going? -))))
